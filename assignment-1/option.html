@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gender and Suboption Dropdown</title>
+</head>
+<body>
+
+  <label for="gender">Choose your gender:</label>
+  <!-- Main gender dropdown -->
+  <select id="gender" name="gender" onchange="updateSuboptions()">
+    <option value="" disabled selected>Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <!-- Suboption dropdown, initially hidden -->
+  <label for="suboption" id="suboptionLabel" style="display: none;">Choose a suboption:</label>
+  <select id="suboption" name="suboption" style="display: none;">
+  </select>
+
+  <script>
+    // Function to update visibility and options of suboption dropdown based on the selected gender
+    function updateSuboptions() {
+      var genderSelect = document.getElementById("gender");
+      var suboptionLabel = document.getElementById("suboptionLabel");
+      var suboptionSelect = document.getElementById("suboption");
+
+      // Clear existing options
+      suboptionSelect.innerHTML = "";
+
+      // Display or hide suboption dropdown based on the selected gender
+      if (genderSelect.value === "male") {
+        suboptionLabel.style.display = "block";
+        suboptionSelect.style.display = "block";
+
+        // Populate suboptions for Male
+        addSuboption("short_hair", "Short Hair");
+        addSuboption("beard", "Beard");
+      } else if (genderSelect.value === "female") {
+        suboptionLabel.style.display = "block";
+        suboptionSelect.style.display = "block";
+
+        // Populate suboptions for Female
+        addSuboption("long_hair", "Long Hair");
+        addSuboption("earrings", "Earrings");
+      } else {
+        suboptionLabel.style.display = "none";
+        suboptionSelect.style.display = "none";
+      }
+    }
+
+    // Function to add options to the suboption dropdown
+    function addSuboption(value, text) {
+      var option = document.createElement("option");
+      option.value = value;
+      option.text = text;
+      document.getElementById("suboption").add(option);
+    }
+  </script>
+
+</body>
+</html>
