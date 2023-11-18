@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    let sum = 0 ; 
+    let counter = 0 ;
+        for( let i = 0 ; i < 300 ; i ++){
+            if( i % 3 == 0 && i % 7 == 0){
+                sum = sum + i ;
+                counter++ ;
+                console.log(i);
+            }
+        }
+        console.log("sum of the numbers is : " + sum + "\n" +
+        "total numbers of numbers between 1 and 300 : " + counter);
+    </script>
+</body>
+</html>

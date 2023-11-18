@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const userInput = prompt("enter a value : ");
+const number = parseInt(userInput);
+
+if (!isNaN(number)) {
+    let digitCount = 0;
+    let tempNumber = Math.abs(number); 
+    do {
+        digitCount++;
+        tempNumber = Math.floor(tempNumber / 10);
+    } while (tempNumber > 0);
+
+    console.log("numbr of digits in " + number +" is : " + digitCount);
+} else {
+    console.log("invalid input ");
+}
+
+    </script>
+</body>
+</html>

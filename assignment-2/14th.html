@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let userInput = prompt("enter a number : ");
+    let inputString = userInput.toString();
+    
+    let evenDigitsInEvenPlaces = 0;
+    let evenDigitsInOddPlaces = 0;
+
+    for (let i = 0; i < inputString.length; i++) {
+        let digit = parseInt(inputString[i]);
+
+        if (i % 2 === 0) { 
+            if (digit % 2 === 0) {
+                evenDigitsInEvenPlaces++;
+            }
+        } else {
+            if (digit % 2 === 0) {
+                evenDigitsInOddPlaces++;
+            }
+        }
+    }
+
+    console.log(" number of evenDigitsInEvenPlaces : " + evenDigitsInEvenPlaces);
+    console.log( "number of evenDigitsInOddPlaces : "  + evenDigitsInOddPlaces);
+    </script>
+</body>
+</html>

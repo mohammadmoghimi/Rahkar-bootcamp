@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt("Enter the first value: "));
+let b = parseInt(prompt("Enter the second value: "));
+
+if (isNaN(a) || isNaN(b)) {
+    console.log("Please enter valid numbers.");
+} else {
+    console.log("GCD: " + GCD(a, b));
+}
+
+function GCD(a, b) {
+    // Ensure both numbers are non-negative
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    // Euclidean algorithm
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+    </script>
+</body>
+</html>
