@@ -1,0 +1,11 @@
+<!-- src/app/task-input/task-input.component.html -->
+<div>
+    <input
+      type="text"
+      placeholder="Enter task"
+      [value]="taskDescription"
+      (input)="updateTaskDescription($event)"
+    />
+    <button (click)="addTask()">Submit</button>
+  </div>
+  

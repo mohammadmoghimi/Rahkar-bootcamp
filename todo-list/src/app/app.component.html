@@ -1,0 +1,9 @@
+<h1>ToDo-List</h1>
+<div>
+  <app-task-input (taskAdded)="onTaskAdded($event)"></app-task-input>
+  <app-task-list
+    [tasks]="tasks"
+    (removeTask)="onRemoveTask($event)"
+    (toggleTaskDone)="onToggleTaskDone($event)"
+  ></app-task-list>
+</div>

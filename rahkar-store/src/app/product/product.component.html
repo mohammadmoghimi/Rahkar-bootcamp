@@ -1,0 +1,22 @@
+<div class="card-container">
+    <ng-container *ngFor="let item of products">
+        <div class="card" style="width: 18rem">
+            <img [src]="item.Image" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">
+                {{item.name}}
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{item.description}}</li>
+              <li class="list-group-item">price:<span>{{item.price}}</span></li>
+              <li class="list-group-item">description:<span>{{item.description}}</span></li>
+            </ul>
+            <div class="card-body">
+              <a (click)="onClick(item.id)" class="btn btn-success, card-link">>Card link: </a>
+              
+            </div>
+          </div>
+    </ng-container>
+    </div>
