@@ -1,0 +1,10 @@
+<form [formGroup]="numberForm">
+    <div formArrayName="numbers">
+      <div *ngFor="let numberGroup of numberArray.controls; let i = index" [formGroupName]="i">
+        <input type="number" formControlName="number" placeholder="Enter a number" />
+        <button type="button" (click)="removeNumberInput(i)">Remove</button>
+      </div>
+    </div>
+    <button type="button" (click)="addNumberInput()">Add Number Input</button>
+  </form>
+  

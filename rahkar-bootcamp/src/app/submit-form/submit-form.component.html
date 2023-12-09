@@ -1,0 +1,90 @@
+
+<div class="col-3">
+    <label for="firstName" class="form-label">FirstName</label>
+    <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" placeholder="Enter you FirstName">
+  </div>
+  <div class="col-3">
+    <label for="lastName" class="form-label">LastName</label>
+    <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" placeholder="Enter your LastName">
+  </div>
+  <div class="col-3">
+    <label for="number" class="form-label">Number</label>
+    <input type="text" class="form-control" id="number" [(ngModel)]="user.number" placeholder="Enter you Number">
+  </div>
+  <div class="col-3">
+    <label for="email" class="form-label">Email-Address</label>
+    <input type="text" class="form-control" id="email" [(ngModel)]="user.email" placeholder="Enter you Email">
+  </div>
+<br>
+  <button (click)="onClickSubmit()" class="btn btn-success">submit</button>
+<br>
+  <br>
+
+
+<!-- 
+
+  <div class="col-3">
+    <label for="searchInput" class="form-label">
+      <button (click)=" filteredUsersData()" class="btn btn-primary">Search</button>
+    </label>
+    <input type="text" class="form-control" id="searchInput" [(ngModel)]="searchQuery" placeholder="Enter your search term">
+  </div>
+  
+  <div class="container text-center">
+    <div class="row g-2">
+      <div class="col-3 mb-3">
+        <div class="p-3 bg-light">
+          <p *ngFor="let userData of filteredUsersData()">{{ userData.firstName }} {{ userData.lastName }} {{ userData.number }} {{ userData.email }}</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <div class="p-3 bg-light">
+          <p *ngFor="let userData of filteredUsersData()">{{ userData.firstName }} {{ userData.lastName }} {{ userData.number }} {{ userData.email }}</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <div class="p-3 bg-light">
+          <p *ngFor="let userData of filteredUsersData()">{{ userData.firstName }} {{ userData.lastName }} {{ userData.number }} {{ userData.email }}</p>
+        </div>
+      </div>
+      <div class="col-3 mb-3">
+        <div class="p-3 bg-light">
+          <p *ngFor="let userData of filteredUsersData()">{{ userData.firstName }} {{ userData.lastName }} {{ userData.number }} {{ userData.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+ <br>
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">firstName</th>
+          <th scope="col">lastName</th>
+          <th scope="col">number</th>
+          <th scope="col">email</th>
+          <th scope="col">delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let userData of filteredUsersData(); let i = index">
+          <td>{{ userData.firstName }}</td>
+          <td>{{ userData.lastName }}</td>
+          <td>{{ userData.number }}</td>
+          <td>{{ userData.email }}</td>
+          <td>
+            <button (click)="onClickDelete(i)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>  
+  </table>
+
+
+
+
