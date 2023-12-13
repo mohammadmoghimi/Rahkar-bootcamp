@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product/product-detailes/product-detailes.component';
-import { GetApiComponent } from './get-api/get-api.component';
+import { TelegramComponent } from './telegram/telegram.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +17,10 @@ export const routes: Routes = [
         component: ProductComponent,
       },
       {
+        path: "telegram",
+        component: TelegramComponent
+      },
+      {
         path: 'products/:id',
         component: ProductDetailsComponent,
       },
@@ -24,8 +28,4 @@ export const routes: Routes = [
     ],
     
   },
-  {
-    path:'get/api' ,
-    component:GetApiComponent
-  }
 ];

@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { BodyComponent } from "./home/body/body.component";
@@ -15,9 +16,9 @@ export const routes: Routes = [
     component: RootComponent
   },
   {
-    path:'home' ,
-    loadChildren :() => import("./home/home.routes") .then((m)=>m.HomeRoutes)
-  } ,
+    path: "home",
+    loadChildren: () => import("./home/home.routse").then((m) => m.HomeRoutes)
+  },
   {
     path: "**",
     component: NotFound,

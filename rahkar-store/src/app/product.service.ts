@@ -9,21 +9,21 @@ export class ProductService{
         {
           id: 1,
           name: 'HTML cource',
-          Image:'assets/productsImages/html.png' ,
+          Image:'assets/download (1).png' ,
           price: '300',
           description: "managed by Kamal Gharejelou"
         },
         {
             id: 2,
             name: 'CSS cource',
-            Image: 'assets/productsImages/css.png',
+            Image: 'assets/download (2).png',
             price: '500',
             description: "managed by Alireza EbrahimKhani"
           },
           {
             id: 3,
             name: 'Angular cource',
-            Image: 'assets/productsImages/angular.png',
+            Image: 'assets/download.png',
             price: '900',
             description: "managed by Aboulfazl narm"
           },

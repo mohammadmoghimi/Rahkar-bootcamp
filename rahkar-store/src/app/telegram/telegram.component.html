@@ -1,1 +1,49 @@
-<p>telegram works!</p>
+<div class="container">
+    <ng-container *ngIf="errorMessage">
+      <div class="row my-5">
+        <div class="col-12">
+          <span class="alert bg-danger text-white">{{ errorMessage }}</span>
+        </div>
+      </div>
+  
+    </ng-container>
+  
+  
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-lg-4 col-12">
+          <input type="text" formControlName="text" class="form-control" placeholder="متن ارسالی برای تلگرام">
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-4 col-12">
+          <input type="file" formControlName="image" class="form-control" accept="image/*">
+        </div>
+      </div>
+    
+  
+      <div formArrayName="items">
+  
+        <ng-container *ngFor="let item of items.controls; let i=index;let first=first" [formGroupName]="i">
+          <div class="row mt-4">
+            <div class="col-lg-4 col-12">
+              <input type="text" formControlName="mobile" class="form-control" [placeholder]="'items'+ i">
+              <div class="input-group mb-3" dir="rtl">
+  
+                <input type="text" formControlName="name" class="form-control" [placeholder]="'items'+ i">
+                <span *ngIf="!first" (click)="removeAt(i)" class="input-group-text" id="basic-addon1"><i class="fas fa-trash"></i></span>
+                <span *ngIf="first" (click)="addItems()" class="input-group-text" id="basic-addon1"><i class="fas fa-plus"></i></span>
+              </div>
+  
+            </div>
+          </div>
+  
+        </ng-container>
+  
+  
+      </div>
+      <button (click)="submite()" type="submit" class="btn btn-success mt-5">ارسال پیام</button>
+    </form>
+  
+  </div>

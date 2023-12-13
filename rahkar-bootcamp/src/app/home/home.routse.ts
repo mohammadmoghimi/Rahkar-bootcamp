@@ -8,7 +8,7 @@ import { HeaderComponent } from "./header/header.component";
 import { UserDetailComponent } from "../user-detail/user-detail.component";
 import { BodyComponent } from "./body/body.component";
 
-export const Homeroutes : Routes = [
+export const HomeRoutes : Routes = [
       {
         path: "",
         component: HomeComponent,
