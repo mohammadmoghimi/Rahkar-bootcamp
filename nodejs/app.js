@@ -43,7 +43,6 @@ let users = [
 const app =express() ;
 app.use(express.json())
 
-app.use('/api/book' , book)
 
 
 // app.use((req , res , next) => {
@@ -70,7 +69,8 @@ app.use('/api/book' , book)
         
 //        res.json(users)
 //     })
-
+app.use("/api/user", userRoutes);
+app.use("/api/book", bookRoutes);
 
 app.listen(4000 , () =>{
     console.log("is ok");
