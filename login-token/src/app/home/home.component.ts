@@ -12,10 +12,9 @@ import { HomeService } from './home.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  
-  authService = inject(AuthService);
-  homeService = inject(HomeService);
-  router = inject(Router);
+  constructor(public authService:AuthService ,
+     private homeService:HomeService ,
+    private router:Router){}
 
     login(){
       this.router.navigateByUrl("auth/login") ;
