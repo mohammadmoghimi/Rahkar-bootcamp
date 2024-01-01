@@ -1,0 +1,7 @@
+<div *ngIf="authService.isLogin; else isNotLogin" class="btn btn-primary" (click)="logout()">Logout</div>
+
+<ng-template #isNotLogin>
+  <div class="btn btn-primary" (click)="login()">Login</div>
+</ng-template>
+
+<div class="btn btn-primary" (click)="getBooks()">Get Books</div>

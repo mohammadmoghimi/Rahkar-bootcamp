@@ -40,6 +40,7 @@ exports.changeStatus = async (req, res) => {
     res.json({message:"error"} , 400)
    }
   }
+  
 exports.editTitle = async (req, res) => {
   try{
        let result = await TaskModel.editTitle(req.body.title,req.params.id)
