@@ -1,0 +1,4 @@
+five api's :
+deleteById , submit , update , getById , getDiaries
+
+database password could be moghimigmail1 !!!

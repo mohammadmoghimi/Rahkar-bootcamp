@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskItemComponent } from '../task-item/task-item.component';
-import { TaskService } from '../task.service';
 import { ITaskRequest } from '../typings/task-request.model';
 import { ITask } from '../typings/task.model';
 import { subscribeOn } from 'rxjs';
 import { TaskSubmitType } from '../enums/task-submit-type';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-form',
@@ -16,20 +16,17 @@ import { TaskSubmitType } from '../enums/task-submit-type';
   styleUrl: './task-form.component.scss'
 })
 export class TaskFormComponent {
-  constructor(){
+  constructor(private fb:FormBuilder ,private taskService:TaskService){
     this.getTasks() ;
   }
 
   taskList: ITask[] = [
     {
       id: 1,
-      title: "Sib zamini bekhar zooood!",
+      title: "Take out the trash",
       isDone: false
     }
   ];
-
-  fb = inject(FormBuilder);
-  taskService = inject(TaskService);
 
   taskForm = this.fb.group({
     title: ['', Validators.required]

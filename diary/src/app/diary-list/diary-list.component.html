@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First 20 Letters</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let diary of diaries">
+        <td>{{ diary.id }}</td>
+        <td>{{ diary.text.slice(0, 20) }}</td>
+        <td>
+          <button (click)="deleteDiary(diary.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

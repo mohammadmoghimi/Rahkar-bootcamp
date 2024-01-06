@@ -2,10 +2,14 @@
   <form [formGroup]="taskForm">
     <div class="form-wrapper">
       <div class="form-group">
-        <input formControlName="title" type="text" class="form-control" placeholder="Type something...">
+        <input formControlName="title" type="text" class="form-control" placeholder="Enter your task ...">
       </div>
-      <button (click)="onSubmitTask()" [disabled]="taskForm.invalid" type="submit" [class.btn-success]="this.submitType == 0"  [class.btn-warning]="this.submitType == 1"class="btn btn-primary">@if (this.submitType == 0){Submit} @if (this.submitType == 1){Update}</button>
-    </div>
+      <button (click)="onSubmitTask()" [disabled]="taskForm.invalid" 
+      type="submit" [class.btn-success]="this.submitType == 0" 
+      [class.btn-warning]="this.submitType == 1"class="btn btn-primary">
+      @if (this.submitType == 0){Submit} @if (this.submitType == 1){Update}
+      </button>
+      </div>
   </form>
 
   <app-task-item

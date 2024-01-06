@@ -24,15 +24,15 @@ export class HomeComponent {
       this.authService.logOut()
     }
     
-    getBooks() {
-      this.homeService.getBooks().subscribe({
-        next: ({ data }) => {
-          console.log(data);
-        },error:(error)=>{
-          console.log(error);
+    // getBooks() {
+    //   this.homeService.getBooks().subscribe({
+    //     next: ({ data }) => {
+    //       console.log(data);
+    //     },error:(error)=>{
+    //       console.log(error);
   
-        }
-      })
-    }
+    //     }
+    //   })
+    // }
 
 }

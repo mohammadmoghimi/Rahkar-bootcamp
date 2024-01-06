@@ -1,0 +1,15 @@
+
+<div class="container">
+    <form [formGroup]="loginForm">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-12">
+  
+          <input type="text" class="form-control" formControlName="username">
+          <input type="password" class="form-control" formControlName="password">
+  
+          <button class="btn btn-success" [disabled]="loginForm.invalid" (click)="onSubmitLogin()"> login</button>
+        </div>
+      </div>
+    </form>
+  
+  </div>
