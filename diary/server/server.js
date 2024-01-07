@@ -11,4 +11,4 @@ app.use("/api/diary", diaryRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
-});
+});   

@@ -1,0 +1,30 @@
+<!-- <div class="wrapper">
+    <form [formGroup]="diaryForm">
+      <div class="form-wrapper">
+        <div class="form-group">
+          <input formControlName="text" type="text" class="form-control" placeholder="Enter your diary ...">
+        </div>
+        <button (click)="onSubmitDiary()" [disabled]="diaryForm.invalid" 
+        type="submit" [class.btn-success]="this.submitType == 0" 
+        [class.btn-warning]="this.submitType == 1"class="btn btn-primary">
+        @if (this.submitType == 0){Submit} @if (this.submitType == 1){Update}
+        </button>
+        </div>
+    </form>
+  
+    <app-diary-item 
+      *ngFor="let item of diaryList"
+      [diary]="item"
+      (deleted)="onDeleteDiary($event)"
+      (edited)="onEditDiary($event)">
+    </app-diary-item>
+  </div> -->
+
+  <form class="form" [formGroup]="diaryForm">
+    <div class="navbar">  
+      <p class="paragraph">نرم افزار مدیریت دلنوشته</p>
+    </div>
+    <textarea class="textArea" formControlName="text" type="text"  ></textarea>
+    <button class="button" (click)="onSubmitDiary()" type="submit">ثبت دلنوشته</button>
+  </form>
+  

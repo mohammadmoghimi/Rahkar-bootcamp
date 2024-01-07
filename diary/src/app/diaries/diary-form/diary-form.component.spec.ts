@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiaryListComponent } from './diary-list.component';
+import { DiaryFormComponent } from './diary-form.component';
 
-describe('DiaryListComponent', () => {
-  let component: DiaryListComponent;
-  let fixture: ComponentFixture<DiaryListComponent>;
+describe('DiaryFormComponent', () => {
+  let component: DiaryFormComponent;
+  let fixture: ComponentFixture<DiaryFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DiaryListComponent]
+      imports: [DiaryFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DiaryListComponent);
+    fixture = TestBed.createComponent(DiaryFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

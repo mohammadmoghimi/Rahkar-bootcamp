@@ -1,0 +1,21 @@
+<!-- <div class="diary-wrapper">
+    <p>{{ diary.text }}</p>
+    <div class="actions">
+      <button (click)="edited.emit(diary.id)" type="submit" class="btn btn-primary">Edit</button>
+      <button (click)="deleted.emit(diary.id)" type="submit" class="btn btn-danger">Delete</button>
+    </div>
+  </div> -->
+
+  <div class="navbar">  
+    <p class="paragraph">نرم افزار مدیریت دلنوشته</p>
+  </div>
+
+  <div class="diary-wrapper">
+    <div class="actions">
+      <button (click)="edited.emit(diary.id)" type="submit" class="btn btn-primary">
+        <i class="fa-solid fa-pencil"></i>
+      </button>
+          <button (click)="deleted.emit(diary.id)" type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </button>
+    <p class="text">{{ diary.text.substring(0,20) }}</p>
+  </div>
+  </div>
