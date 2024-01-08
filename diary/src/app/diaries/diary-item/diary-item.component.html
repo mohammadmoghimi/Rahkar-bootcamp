@@ -19,3 +19,12 @@
     <p class="text">{{ diary.text.substring(0,20) }}</p>
   </div>
   </div>
+  <div class="diary-wrapper">
+    <div class="actions">
+      <button (click)="edited.emit(diary.id)" type="submit" class="btn btn-primary">
+        <i class="fa-solid fa-pencil"></i>
+      </button>
+          <button (click)="deleted.emit(diary.id)" type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </button>
+    <p class="text">{{ diary.text.substring(0,20) }}</p>
+  </div>
+  </div>

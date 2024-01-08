@@ -1,48 +1,55 @@
 const DiaryModel = require ("../models/diary.model")
 
-    exports.submitDiary = async (request , response ) => {
+    const submitDiary = async (request , response ,next ) => {
         try{
             let result = await DiaryModel.submitDiary(request.body)
             response.json({message:"successful"} , 200)
         } catch (error) {
-            response.json({message:"error"} , 400 )
+            next(error) ;
         }
+    }
 
-    exports.getAllDiaries = async (request , response ) => {
+    const getAllDiaries = async (request , response ,next ) => {
         try{
             let result = await DiaryModel.getAllDiaries() ;
             response.json({result} , 200 )
         } catch(error) {
-            response.json({message:"error"}, 400 )
+            next(error) ;
         }
     }
 
-    exports.getDiaryById = async (request , response ) => {
+    const getDiaryById = async (request , response , next ) => {
         try{
             let result = await DiaryModel.getDiaryById(request.params.id) ;
             response.json({result} , 200 )
         } catch(error) {
-            response.json({message:"error"}, 400 )
+            next(error);
         }
     }
 
-    exports.editDiaryText = async (request , response ) => {
+    const editDiaryText = async (request , response , next ) => {
         try{
             let result = await DiaryModel.editDiaryText(request.body.text,request.params.id) ;
             response.json({message:"successfuly"} , 200 )
         } catch(error) {
-            response.json({message:"error"}, 400 )
+            next(error);
         }
     }
 
-    exports.deleteText = async (request , response ) => {
+    const deleteDiaryById = async (request , response , next ) => {
         try{
-            let result = await DiaryModel.deleteText(request.params.id) ;
+            let result = await DiaryModel.deleteDiaryById(request.params.id) ;
             response.json({message:"Done successfuly"} , 200)
         } catch (error) {
-            response.json({message:"error"} , 400)
+            next(error);
         }
     }
 
-
-}
+    module.exports = {
+        submitDiary,
+        getAllDiaries,
+        getDiaryById,
+        editDiaryText,
+        deleteDiaryById,
+      };
+      

@@ -49,8 +49,7 @@ export class DiaryFormComponent {
 
 
   onSubmitDiary() {
-    console.log(this.diaryForm.get("title")?.value);
-    if(this.submitType == DiarySubmitType.submit){
+    console.log(this.diaryForm.get("text")?.value);
     this.diaryService.submitDiary(this.diaryForm.value as IDiaryrequest)
     .subscribe({
       next:(data) => {
@@ -62,10 +61,8 @@ export class DiaryFormComponent {
       complete:() =>{
       }
     });
-  }
         this.diaryForm.reset() ;
-        this.router.navigateByUrl('../diary-item/diary-item.component.html')
-        
+        this.router.navigateByUrl('item')
   }
 
 

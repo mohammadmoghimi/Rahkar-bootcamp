@@ -23,13 +23,9 @@
   background-color: rgb(128, 149, 189);
   border-radius: 30px;
   padding:20px;
-
 }
-
-
-.actions{
-  display: flex;
-  column-gap: 4px;
+.diary-wrapper:last-child {
+  margin-top: 20px;
 }
 
 .navbar {
@@ -42,6 +38,12 @@
   border-bottom-left-radius: 20px; 
   border-bottom-right-radius: 20px;
 }
+.actions{
+  display: flex;
+  column-gap: 4px;
+}
+
+
 .paragraph{
   font-size: large;
   margin-left: 560px;

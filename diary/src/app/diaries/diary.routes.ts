@@ -9,6 +9,10 @@ export const DairyRoutes: Routes = [
          component:DiaryFormComponent
         // component:DiaryItemComponent
     } ,
+    {
+        path:"item" ,
+        component:DiaryItemComponent
+    }
     // {
     //     path:"list" ,
     //     component:DiaryFormComponent

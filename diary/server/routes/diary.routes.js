@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { submitDiary , getAllDiaries , getDiaryById , editDiaryText , deleteDiaryById } 
-= require("../controller/diary.controller")
+const { submitDiary , getAllDiaries , getDiaryById 
+    , editDiaryText , deleteDiaryById } 
+= require("../controller/diary.controller.js")
 
 
 router.post("/submit", submitDiary);
