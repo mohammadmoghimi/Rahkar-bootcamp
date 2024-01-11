@@ -1,0 +1,11 @@
+<div>
+    <h2>Add a New Transaction</h2>
+    <label for="transactionTitle">Title:</label>
+    <input type="text" [(ngModel)]="transactionTitle" id="transactionTitle" required>
+  
+    <label for="transactionAmount">Amount:</label>
+    <input type="number" [(ngModel)]="transactionAmount" id="transactionAmount" required>
+  
+    <button (click)="addTransaction()">Add Transaction</button>
+  </div>
+  

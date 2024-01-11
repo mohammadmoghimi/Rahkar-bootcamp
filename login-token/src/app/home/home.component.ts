@@ -3,6 +3,7 @@ import { AuthService } from '../auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HomeService } from './home.service';
+import { Response } from '../core/Typings/response';
 
 @Component({
   selector: 'app-home',

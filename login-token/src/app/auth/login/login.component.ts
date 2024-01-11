@@ -28,7 +28,7 @@ export class LoginComponent {
   onSubmitLogin(){
     this.authServise.login(this.loginForm.value).subscribe({
       next: ({ data })=>{
-        this.authServise.setTokenLocalStorage(data);
+        this.authServise.setTokenToLocalStorage(data);
         this.router.navigateByUrl("home");
       },
       error:(error)=>{
