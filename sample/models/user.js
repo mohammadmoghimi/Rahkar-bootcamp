@@ -1,28 +1,28 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require("../utils/database") ;
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require("../utils/database");
 
-const User = sequelize.define('User', {
-  // Model attributes are defined here
-  id: {
-    type:DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement:true
-  },
-  name:{
-    type:DataTypes.STRING,
-    allowNull:false
-  },
-  mobile:{
-    type:DataTypes.STRING,
-    allowNull:false
+class User extends Model {
+  static init(sequelize) {
+    super.init({
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      mobile: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    }, {
+      sequelize,
+      modelName: 'User',
+      timestamps: true,
+    });
   }
-}, {
-  timestamps:true
-});
-
-// `sequelize.define` also returns the model
-console.log(User === sequelize.models.User); // true
-
-User.hasMany(book, { as: 'book', foreignKey: 'userId' });
+}
 
 module.exports = User;

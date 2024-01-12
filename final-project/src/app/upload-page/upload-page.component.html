@@ -1,0 +1,12 @@
+
+<div>
+    <h2>Upload Page</h2>
+    <form (submit)="onSubmit()">
+    <label>Description:</label>
+<input type="text" [(ngModel)]="description" name="description" required>
+  <label>Image:</label>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" required>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+  

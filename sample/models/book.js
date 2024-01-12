@@ -1,24 +1,37 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require("../utils/database") ;
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require("../utils/database");
+const User = require('./user'); // Import User model here
 
-const User = sequelize.define('book', {
-  id: {
-    type:DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement:true
-  },
-  name:{
-    type:DataTypes.STRING,
-    allowNull:false
-  },
-  price:{
-    type:DataTypes.INTEGER,
-    allowNull:false
+class Book extends Model {
+  static init(sequelize) {
+    super.init({
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'User',
+          key: 'id',
+        },
+      },
+    }, {
+      sequelize,
+      modelName: 'Book',
+      timestamps: true,
+    });
   }
-});
+}
 
-console.log(User === sequelize.models.User); 
-
-book.belongsTo(User, {foreignKey:'userId'})
-
-module.exports = User;
+module.exports = Book;
