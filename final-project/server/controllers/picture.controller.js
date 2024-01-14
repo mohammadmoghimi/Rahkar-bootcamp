@@ -14,26 +14,22 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+const uploadMiddleware = upload.single('image');
 
-// Upload picture
-exports.upload = upload.single('image'), async (req, res) => {
+exports.upload = async (req, res) => {
   try {
-    // Extract data from the request
-    const { description } = req.body;
-    const imagePath = req.file.path; // Path where the image is saved
+    uploadMiddleware(req, res, async (err) => {
+      const { description } = req.body;
+      const imagePath = req.file.path; 
 
-    // Create a new picture record in the database
-    const newPicture = await Picture.create({ description, image_path: imagePath });
+      const newPicture = await Picture.create({ description, image_path: imagePath });
 
-    // Send a response or perform other actions
-    res.status(201).json(newPicture);
+      res.status(201).json(newPicture);
+    });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-
-// Fetch list of pictures
 exports.fetchList = async (req, res) => {
   try {
     const pictures = await Picture.findAll();

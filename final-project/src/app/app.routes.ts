@@ -4,11 +4,16 @@ import { ListComponent } from './list/list.component';
 
 export const routes: Routes = [
     {
-        path:"u" ,
+        path:'' ,
+        pathMatch:'full' ,
+        redirectTo:"upload"
+    } ,
+    {
+        path:"upload" ,
         component:UploadPageComponent
     } ,
     {
-        path:"l" ,
+        path:"list" ,
         component:ListComponent
     }
 ];

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PictureService } from '../picture.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload-page',
@@ -13,8 +14,9 @@ export class UploadPageComponent {
   description: string = '';
   selectedFile: File | null = null;
 
-  constructor(private pictureService: PictureService) {}
-
+  pictureService = inject(PictureService)
+  router = inject (Router)
+  
   onSubmit() {
     if (this.selectedFile) {
       const formData = new FormData();
@@ -22,6 +24,7 @@ export class UploadPageComponent {
       formData.append('image', this.selectedFile);
       this.pictureService.uploadPicture(this.description , this.selectedFile).subscribe(response => {
         console.log('Picture uploaded successfully:', response);});
+        // this.router.navigateByUrl('list')
 }
 }
 

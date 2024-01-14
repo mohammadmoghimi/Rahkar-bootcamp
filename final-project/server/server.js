@@ -1,16 +1,15 @@
 
 const express = require('express');
 const app = express();
-const uploadRoutes = require('./routes/upload.route');
 const bodyParser = require('body-parser');
-const listRoutes = require('./routes/fetchList.route');
 const path = require('path'); 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+const pictureRoutes = require("./routes/picture.route")
+app.use('/assetes', express.static(path.join(__dirname, 'assets')));
+
 
 app.use(bodyParser.json());
 
-app.use('/api', uploadRoutes);
-app.use('/api', listRoutes);
+app.use('/api', pictureRoutes);
 
 
 const PORT =  4000;

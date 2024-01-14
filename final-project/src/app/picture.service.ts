@@ -13,10 +13,10 @@ export class PictureService {
     const formData = new FormData() ;
     formData.append('description', description);
     formData.append('image', file);
-    return this.http.post(`http://localhost:3000/upload`, formData);
+    return this.http.post(`http://localhost:4000/api/upload`, formData);
   }
 
   getAllPictures(): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:3000/fetchList`);
+    return this.http.get<any[]>(`http://localhost:4000/api/fetchList`);
   }
 }
