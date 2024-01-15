@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PictureService } from '../picture.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { PictureService } from '../picture.service';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
   pictures: any[] = [];
 
- pictureService = inject(PictureService)
+  constructor(private pictureService:PictureService){}
   ngOnInit() {
     this.pictureService.getAllPictures().subscribe(pictures => {
       this.pictures = pictures;
     });
-  }
+  } 
 }

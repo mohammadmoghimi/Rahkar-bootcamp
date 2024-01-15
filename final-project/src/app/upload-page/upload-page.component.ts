@@ -13,9 +13,8 @@ import { Router } from '@angular/router';
 export class UploadPageComponent {
   description: string = '';
   selectedFile: File | null = null;
-
-  pictureService = inject(PictureService)
-  router = inject (Router)
+   
+  constructor(private router:Router , private pictureService:PictureService){}
   
   onSubmit() {
     if (this.selectedFile) {
@@ -24,7 +23,7 @@ export class UploadPageComponent {
       formData.append('image', this.selectedFile);
       this.pictureService.uploadPicture(this.description , this.selectedFile).subscribe(response => {
         console.log('Picture uploaded successfully:', response);});
-        // this.router.navigateByUrl('list')
+         this.router.navigateByUrl('list')
 }
 }
 

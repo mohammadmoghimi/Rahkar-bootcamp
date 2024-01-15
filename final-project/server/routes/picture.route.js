@@ -1,9 +1,9 @@
 const express = require("express") 
 const router = express.Router()
-const pictureController = require("../controllers/picture.controller")
+const {upload , fetchList} = require("../controllers/picture.controller")
 
-router.get('/list' , pictureController.fetchList)
+router.get('/list' , fetchList)
 
-router.post('/upload' , pictureController.upload)
+router.post('/upload' , upload)
 
 module.exports = router

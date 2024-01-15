@@ -30,6 +30,7 @@ exports.upload = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 exports.fetchList = async (req, res) => {
   try {
     const pictures = await Picture.findAll();

@@ -17,6 +17,6 @@ export class PictureService {
   }
 
   getAllPictures(): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:4000/api/fetchList`);
+    return this.http.get<any[]>(`http://localhost:4000/api/list`);
   }
 }
