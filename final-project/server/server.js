@@ -7,7 +7,7 @@ const path = require('path');
 
 
 const pictureRoutes = require("./routes/picture.route")
-app.use('/assetes', express.static(path.join(__dirname, 'assets')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use(cors())
 app.use(bodyParser.json());
