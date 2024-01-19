@@ -1,10 +1,22 @@
-<div>
+
+<body>
+  <div>
 <h1>List of Pictures</h1>
+<div class="searchBar">
+  <label for="search">Search:</label>
+  <input type="text" id="search" [(ngModel)]="searchQuery" placeholder="enter your search query ..." />
+  <button class="btn btn-danger" (click)="onSearch()">Search</button>
+</div>
+  <button class="btn btn-success" (click)="fullList()">see the full list</button>
+
     <ul>
       <li *ngFor="let picture of pictures">
-        <img [src]="picture.image_path" alt="{{ picture.description }}">
+        <img [src]="'http://localhost:4000/' + picture.image_path" 
+        alt="{{ picture.description }}" width="200" height="200">
         <p>{{ picture.description }}</p>
       </li>
     </ul>
-  </div>
+    <button (click)="onClick()" class="btn btn-primary">go to upload page</button>
+  </div>  
+</body>
   

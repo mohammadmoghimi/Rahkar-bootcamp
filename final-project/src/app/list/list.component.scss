@@ -1,0 +1,35 @@
+
+body {
+    background-color: #520c0c; 
+  }
+  div {
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: #292626; 
+    border-radius: 10px; 
+  }
+  h1 {
+    text-align: center; 
+    color: #ffffff;
+  }
+  li {
+    margin-bottom: 20px; 
+  }
+  img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 30px; 
+     display: flex; 
+    margin: 0 auto;
+  }
+  p {
+    text-align: center; 
+    color: #ffffff;
+  }
+  .searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+  }
+  

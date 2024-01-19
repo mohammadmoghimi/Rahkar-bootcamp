@@ -23,9 +23,8 @@ export class UploadPageComponent {
       formData.append('image', this.selectedFile);
       this.pictureService.uploadPicture(this.description , this.selectedFile).subscribe(response => {
         console.log('Picture uploaded successfully:', response);});
-        setTimeout(() => {
-                   this.router.navigateByUrl('list')
-        }, 100);
+
+          this.router.navigateByUrl('list')
 }
 }
 

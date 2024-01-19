@@ -1,6 +1,8 @@
 const multer = require('multer');
 const path = require('path');
 const Picture = require('../models/picture.model');
+const { Op } = require('sequelize');
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -33,7 +35,18 @@ exports.upload = async (req, res) => {
 
 exports.fetchList = async (req, res) => {
   try {
-    const pictures = await Picture.findAll();
+
+    let whereClause = {} ;
+
+    if(req.query.query) {
+      whereClause ={
+        description : {
+          [Op.like] :`${req.query.query}%`//این تیکه رو از جی پی تی گرفتم
+        }
+      }
+    }
+
+    const pictures = await Picture.findAll({where:whereClause});
     res.status(200).json(pictures);
   } catch (error) {
     console.error(error);
