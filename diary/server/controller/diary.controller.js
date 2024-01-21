@@ -1,17 +1,17 @@
 const DiaryModel = require ("../models/diary.model")
 
-    const submitDiary = async (request , response ,next ) => {
-        try{
-            let result = await DiaryModel.submitDiary(request.body)
-            response.json({message:"successful"} , 200)
-        } catch (error) {
-            next(error) ;
-        }
+const submitDiary = async (request , response ,next ) => {
+    try{
+        await new DiaryModel().submitDiary(request.body)
+        response.json({message:"successful"} , 200)
+    } catch (error) {
+        next(error) ;
     }
+}
 
     const getAllDiaries = async (request , response ,next ) => {
         try{
-            let result = await DiaryModel.getAllDiaries() ;
+            let result = await new DiaryModel().getAllDiaries() ;
             response.json({result} , 200 )
         } catch(error) {
             next(error) ;
@@ -20,7 +20,7 @@ const DiaryModel = require ("../models/diary.model")
 
     const getDiaryById = async (request , response , next ) => {
         try{
-            let result = await DiaryModel.getDiaryById(request.params.id) ;
+            let result = await new DiaryModel().getDiaryById(request.params.id) ;
             response.json({result} , 200 )
         } catch(error) {
             next(error);

@@ -11,3 +11,5 @@ router.get("/get", getAllDiaries);
 router.get("/get/:id", getDiaryById);
 router.put("/edit/:id", editDiaryText);
 router.delete("/delete/:id", deleteDiaryById);
+
+module.exports = router ;

@@ -20,7 +20,7 @@ export class DiaryFormComponent {
   
   constructor(private fb:FormBuilder ,
     private router:Router ,private diaryService:DiaryService){
-    this.getAllDiaries() ;
+    // this.getAllDiaries() ;
   }
   diaryList: IDiary[] = [
     {
@@ -52,18 +52,20 @@ export class DiaryFormComponent {
     console.log(this.diaryForm.get("text")?.value);
     this.diaryService.submitDiary(this.diaryForm.value as IDiaryrequest)
     .subscribe({
-      next:(data) => {
-        console.log(data);
-        this.getAllDiaries()
-      } ,
-      error:(error) =>{
-      },
-      complete:() =>{
-      }
+        next: (data) => {
+            console.log(data);
+        },
+        error: (error) => {
+            console.error(error);
+        },
+        complete: () => {
+            // this.diaryForm.reset();
+            this.getAllDiaries();
+            this.router.navigateByUrl('item');
+        }
     });
-        this.diaryForm.reset() ;
-        this.router.navigateByUrl('item')
-  }
+}
+
 
 
   onDeleteDiary(diaryId: number) {

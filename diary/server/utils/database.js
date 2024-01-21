@@ -11,7 +11,7 @@ async createConnection() {
         host:'localhost' ,
         user:'root' ,
         password:'moghimigmail' ,
-        database:'diary-project' //not sure about my database name
+        database:'diary-project' 
     })
 }
 }

@@ -1,4 +1,4 @@
-    const db = require("../utils/database")
+const db = require("../utils/database")
 
 class DiaryModel {
 
@@ -14,6 +14,7 @@ class DiaryModel {
             throw new Error("error")
                       }
             }
+
 
     async getAllDiaries(diary) {
         try{
@@ -62,7 +63,6 @@ class DiaryModel {
     }
 
     async deleteDiaryById(id) {
-        
         try{         
             const query = "SELECT * FROM diaries where id = ?" 
                let [queryAnswer] = await db.connection.execute(queryAnswer,[id])
@@ -78,8 +78,8 @@ class DiaryModel {
                } catch (error) {
                    console.log(error.message);
                    throw new Error("error")
-        
                }
-        
         }
 }
+
+module.exports = DiaryModel ;
