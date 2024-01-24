@@ -4,13 +4,13 @@ const client = require("../database/db");
 
 class UserModel {
   async register(user) {
-    const { username, password } = user;
+    const { mobile, password } = user;
     const hashPass = await this.encryptPass(password);
 
     try {
       const result = await client.query(
-        "insert into users (username, password) values (? , ?)",
-        [username, hashPass]
+        "insert into users (mobile, password) values (? , ?)",
+        [mobile, hashPass]
       );
       if (result.rows) return true;
       else return false;
@@ -20,13 +20,13 @@ class UserModel {
   }
 
   async login(payload) {
-    const { username } = payload;
+    const { mobile } = payload;
     const enteredPass = payload.password;
 
     try {
       const result = await client.query(
-        "select id, password from users where username = ?",
-        [username]
+        "select id, password from users where mobile = ?",
+        [mobile]
       );
       if (result?.rows.length <= 0) {
         return { success: false, message: "User not found ... !" };

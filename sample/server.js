@@ -13,5 +13,5 @@ app.use("/api/test",testRouter)
 
 
 app.listen(PORT,()=>{
-    console.log("it is RUNN");
+    console.log("it is running");
 })

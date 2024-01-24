@@ -7,7 +7,7 @@ const Response = require("../utils/Response");
 // @access      Private
 exports.list = asyncHandler(async (req, res, next) => {
   const { id } = req.query;
-  const result = await TransactionModel.getTransactionList(+id);
+  const result = await TransactionModel.getTransactionList(+id); // new TransactionModel() !!!
   if (result) {
     res.status(200).json(new Response({ success: true, data: result }));
   } else {

@@ -22,12 +22,7 @@ export class DiaryFormComponent {
     private router:Router ,private diaryService:DiaryService){
     // this.getAllDiaries() ;
   }
-  diaryList: IDiary[] = [
-    {
-      id:1 ,
-      text:"blah" ,
-    }
-  ] ;
+  diaryList: IDiary[] = [] ;
 
   diaryForm = this.fb.group({
     text: ['', Validators.required]

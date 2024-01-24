@@ -45,6 +45,7 @@ exports.fetchList = async (req, res) => {
         }
       }
     }
+    console.log(req.query.query);
 
     const pictures = await Picture.findAll({where:whereClause});
     res.status(200).json(pictures);

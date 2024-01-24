@@ -1,0 +1,14 @@
+  <form (ngSubmit)="onClick()">
+      <div>
+        <label for="mobile">mobile :</label>
+        <input type="text" [(ngModel)]="mobile" required>
+    </div>
+
+    <div>
+        <label for="password">password :</label>
+        <input type="password" [(ngModel)]="password" required>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+  <p> already have an account ?</p>
+  <button type="button" (click)="changePage()">login</button>

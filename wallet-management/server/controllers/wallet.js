@@ -7,7 +7,7 @@ const Response = require("../utils/Response");
 // @access      Private
 exports.userAmount = asyncHandler(async (req, res, next) => {
   const { id } = req.query;
-  const result = await WalletModel.getUserAmount(+id);
+  const result = await WalletModel.getUserAmount(+id); // new WalletModel() could be problematic
   if (result) res.status(200).json(new Response({ data: result }));
   else
     res

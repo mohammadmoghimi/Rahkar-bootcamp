@@ -4,7 +4,7 @@ class TransactionModel {
   async getTransactionList(userId) {
     try {
       const transactionsListQuery =
-        "select t.id, t.amount, t.title, tt.id as type_id, tt.name from transactions t inner join transaction_type tt on t.type_id = tt.id where user_id = $1";
+        "select t.id, t.amount, t.title, tt.id as type_id, tt.name from transactions t inner join transaction_type tt on t.type_id = tt.id where user_id = ?";
       const result = await client.query(transactionsListQuery, [userId]);
       if (result.rows.length <= 0) return [];
       else return result.rows;
