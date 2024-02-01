@@ -10,11 +10,11 @@ export class AuthService {
   constructor(private http : HttpClient) { }
   apiUrl = "http://localhost:3000/api/auth" ;
   
-  register(mobile : string , password : string):Observable<any[]> {
+    login(mobile : string  , password : string ):Observable<any[]> {
+    return this.http.post<any[]>(`${this.apiUrl}/login` , {mobile , password})
+  } 
+
+    register(mobile : string , password : string):Observable<any[]> {
     return this.http.post<any[]>(`${this.apiUrl}/register`,{mobile , password})
   }
-
-  login(mobile : string  , password : string ):Observable<any[]> {
-    return this.http.post<any[]>(`${this.apiUrl}/login` , { mobile , password})
-  } 
 }

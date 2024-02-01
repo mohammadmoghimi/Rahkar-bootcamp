@@ -11,7 +11,7 @@ async createConnection() {
         host:'localhost' ,
         user:'root' ,
         password:'moghimigmail' ,
-        database:'bank '
+        database:'bank'
     })
 }
 }
