@@ -1,6 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require("../utils/database");
-const User = require('./user'); // Import User model here
+const User = require('./user'); 
 
 class Book extends Model {
   static init(sequelize) {

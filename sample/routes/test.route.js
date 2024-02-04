@@ -1,9 +1,8 @@
 const express = require('express');
-const testController = require('../controllers/test.controller');
-const { getTestData } = require('../controllers/test.controller');
-
+const userConroller = require('../controllers/user.controller')
 const router = express.Router()
 
-router.get('/',getTestData );
+
+router.post('/user',userConroller.getUserData );
 
 module.exports = router

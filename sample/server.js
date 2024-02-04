@@ -1,17 +1,17 @@
 const express=require("express")
-const cors=require("cors")
-
-const testRouter=require("./routes/test.route")
-
-const PORT=3000;
-
 app=express()
+const cors=require("cors")
 app.use(express.json())
 app.use(cors())
-app.use("/api/test",testRouter)
+
+const userRoute = require('./routes/test.route')
+const bookRoute = require('./routes/book.routes')
+
+app.use("/api/users",userRoute)
+app.use("api/books" , bookRoute)
 
 
-
+const PORT=3000;
 app.listen(PORT,()=>{
     console.log("it is running");
 })
