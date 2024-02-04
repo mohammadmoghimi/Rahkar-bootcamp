@@ -1,8 +1,8 @@
-// const express = require("express");
-// const { protect } = require("../middlewares/auth");
-// const router = express.Router();
-// const { userAmount } = require("../controllers/wallet.controller");
+const express = require("express");
+const router = express.Router();
+const { addToWallet } = require("../controllers/wallet.controller");
+const verifyToken = require("../middleware/verifyToken")
 
-// router.get("/amount" , userAmount);
+router.post("/add-to-wallet" , verifyToken , addToWallet);
 
-// module.exports = router;
+module.exports = router;

@@ -66,14 +66,13 @@ class UserModel {
   async login(user) {
     const {mobile , password} = user ;
     try{
-      const query = "SELECT * FROM users WHERE mobile = ? AND password = ?";
-      if (mobile === undefined || password === undefined) {
-        throw new Error("Mobile and password must be defined");
-      }
+      const query = "SELECT id FROM users WHERE mobile = ? AND password = ?";
       const [rows] = await db.connection.execute(query,[mobile , password])
 
-      if(rows.length > 0)
-      return { success: true, message: 'Login successful' };
+      if(rows.length > 0){
+        const userId = rows[0].id ;
+        return { success: true, message: 'Login successful' , id:userId };
+      }
       
       else
       return { success: false, message: 'Incorrect mobile or password' };

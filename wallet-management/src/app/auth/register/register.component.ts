@@ -13,14 +13,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-
   constructor(private authService : AuthService ,
               private router : Router , private fb : FormBuilder) {}
-    
-      // registerForm = new FormGroup({
-      //   mobile: new FormControl('',[Validators.required]) ,
-      //   password: new FormControl('', Validators.required)
-      // }) ;
 
       registerForm: FormGroup = this.fb.group({
         mobile : [''] ,

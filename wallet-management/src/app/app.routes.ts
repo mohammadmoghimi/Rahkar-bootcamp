@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { WalletComponent } from './wallet/wallet/wallet.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path:'login' ,
         component:LoginComponent
+    } ,
+    {
+        path:'wallet/:userId' ,
+        component:WalletComponent
     }
 
 ];

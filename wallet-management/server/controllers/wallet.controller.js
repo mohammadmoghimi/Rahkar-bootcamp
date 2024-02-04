@@ -1,16 +1,20 @@
-// const asyncHandler = require("../middlewares/async");
-// const WalletModel = require("../models/wallet.model");
-// const Response = require("../utils/Response");
+const WalletModel = require("../models/wallet.model");
+const Response = require("../utils/Response");
 
-// // @desc        Get user wallet amount
-// // @route       GET /api/wallet/amount
-// // @access      Private
-// exports.userAmount = asyncHandler(async (req, res, next) => {
-//   const { id } = req.query;
-//   const result = await WalletModel.getUserAmount(+id); // new WalletModel() could be problematic
-//   if (result) res.status(200).json(new Response({ data: result }));
-//   else
-//     res
-//       .status(500)
-//       .json(new Response({ success: false, message: "Error ...!" }));
-// });
+exports.addToWallet = async (request , response ) => {
+    try{
+        const userId = request.userId ;
+        const {amountToAdd} = request.body;
+        const result = await new WalletModel().addToWallet(userId , amountToAdd)
+        
+        if (result.success) {
+            response.json({message:"successfuly added to the wallet"})           
+        }
+        else{
+            response.json({message:"not successful"})
+        }
+    } catch (error) {
+        next(error)
+    }
+}
+

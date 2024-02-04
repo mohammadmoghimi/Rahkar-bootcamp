@@ -1,4 +1,5 @@
 const UserModel = require("../models/user.model")
+const jwt = require('jsonwebtoken')
 
 const register = async (request , response , next ) => {
   try{ 
@@ -11,11 +12,12 @@ const register = async (request , response , next ) => {
 
 const login = async (request , response , next ) => {
   try{
-    const loginResult = await new UserModel().login(request.body) ;
-    if (loginResult.success) {
-      response.status(200).json({ message: loginResult.message });
+    const user = await new UserModel().login(request.body) ;
+    if (user.success) {
+      const token = generateToken(user.id) ;
+      response.status(200).json({ message: user.message , token  });
     } else {
-      response.status(401).json({ message: loginResult.message });
+      response.status(401).json({ message: user.message });
     }
   } catch (error) {
     response.json({message:"you dont have an account"})
@@ -23,5 +25,11 @@ const login = async (request , response , next ) => {
 
   }
 }
+
+const generateToken = (userId) => {
+  return jwt.sign({ userId } , process.env.jWT_SECRET , {
+    expiresIn:process.env.jWT_SECRET ,
+  }) ;
+} ;
 
 module.exports = {register , login}
